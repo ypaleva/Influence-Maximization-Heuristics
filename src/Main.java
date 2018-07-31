@@ -274,7 +274,7 @@ public class Main {
         //System.out.println("First node: " + bestFirst.getIndex() + ", prob: " + roundThreeDecimals(bestFirst.getP()) + ", neighbours: " + bestFirst.getNodesConnected());
         bestFirst.setInvited(true);
         invitees.add(bestFirst);
-        while (counter < numInvitees-1) {
+        while (counter < numInvitees - 1) {
             for (Node node : nodes) {
                 if (!invitees.contains(node)) {
 
@@ -392,11 +392,11 @@ public class Main {
         int averageUnique = 0;
         int averageTotal = 0;
 
-        int numNodes = 200;
-        double prob = 0.5;
-        int numInv = 10;
+        int numNodes = 100;
+        int prob = 50;
+        int numInv = 5;
 
-        PrintWriter pw = createFileF(100, "smallWorld", "bestNext", numNodes, prob, numInv);
+        PrintWriter pw = createFileF(100, "scaleFree", "bestNext", numNodes, prob, numInv);
 
         long startTime = System.nanoTime();
 
@@ -405,7 +405,7 @@ public class Main {
             Graph graph = new Graph();
 
             try {
-                initializeSmallWorldNetwork(graph, numNodes, 0.1 ,prob);
+                initializeScaleFreeNetwork(graph, numNodes, prob);
             } catch (NodeNotFoundException e) {
                 e.printStackTrace();
             }
